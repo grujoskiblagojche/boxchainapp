@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>40E1F3E6-D1C1-4984-AD41-70BCF164A566</key>
+		<key>22144E1D-C887-4750-9C0A-FA28CC65A423</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>40E1F3E6-D1C1-4984-AD41-70BCF164A566.xcactivitylog</string>
+			<string>22144E1D-C887-4750-9C0A-FA28CC65A423.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,13 +30,45 @@
 			<key>signature</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>580839563.682935</real>
+			<real>580916038.2608</real>
 			<key>timeStoppedRecording</key>
-			<real>580839567.08674502</real>
+			<real>580916043.78971195</real>
 			<key>title</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>40E1F3E6-D1C1-4984-AD41-70BCF164A566</string>
+			<string>22144E1D-C887-4750-9C0A-FA28CC65A423</string>
+		</dict>
+		<key>8AD0ADC0-B106-4B7D-8D0F-1746F7F340B2</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>8AD0ADC0-B106-4B7D-8D0F-1746F7F340B2.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>boxchainapp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>boxchainapp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>580867825.94086504</real>
+			<key>timeStoppedRecording</key>
+			<real>580867831.75926399</real>
+			<key>title</key>
+			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>8AD0ADC0-B106-4B7D-8D0F-1746F7F340B2</string>
 		</dict>
 	</dict>
 </dict>

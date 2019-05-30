@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import validate from '../utility/validation';
 // styles
 import ui from '../style/Ui';
 import grid from '../style/Grid';
 import typo from '../style/Typography';
-// images
-import ArrowIcon from '../assets/arrow.png';
 // components
 import Header from '../components/Header';
 import Input from '../components/Input';
@@ -14,6 +13,52 @@ import Button from '../components/Button';
 export default class LogIn extends React.Component {
     static navigationOptions = {
         header: null
+    }
+
+    state = {
+        form: {
+            email: {
+                value: '',
+                valid: false,
+                validationRules: {
+                    isEmail: true
+                },
+                touched: false
+            },
+            password: {
+                value: '',
+                valid: false,
+                validationRules: {
+                    minLength: 6
+                },
+                touched: false
+            }
+        }
+    } // state
+
+    updateInputState = (key, value) => {
+        this.setState(prevState => {
+            return {
+                form: {
+                    ...prevState.form,
+                    [key]: {
+                        ...prevState.form[key],
+                        value: value,
+                        valid: validate(value, prevState.form[key].validationRules),
+                        touched: true
+                    }
+                }
+            }
+        })
+    }
+
+    login = () => {
+        const { email, password } = this.state.form;
+        if (!email.valid || !password.valid) {
+            return;
+        }
+        // ping api for login user
+        this.goTo('Main');
     }
 
     goTo = url => {
@@ -28,13 +73,24 @@ export default class LogIn extends React.Component {
                     <Header title={ 'Authenticate' } />
 
                     <View style={ [grid.flex_column, grid.flex_column_v_center] }>
-                        <Input value={ '' } placeholder={ 'email' } />
-                        <Input value={ '' } placeholder={ 'password' } />
+                        <Input
+                            value={ this.state.form.email.value }
+                            onChangeText={ (value) => this.updateInputState('email', value) }
+                            placeholder={ 'email' }
+                            valid={ this.state.form.email.valid }
+                            touched={ this.state.form.email.touched } />
+                        <Input
+                            value={ this.state.form.password.value }
+                            onChangeText={ (value) => this.updateInputState('password', value) }
+                            placeholder={ 'password' }
+                            valid={ this.state.form.password.valid }
+                            touched={ this.state.form.password.touched } />
                         <View style={ [grid.flex_row, grid.spaceBetween] }>
                             <TouchableOpacity onPress={ () => this.goTo('ResetPassword') }>
                                 <Text style={ [typo.info, ui.l_15] }>Forgot your password?</Text>
                             </TouchableOpacity>
                             <Button
+                                onPressHandler={ this.login }
                                 iconName={ 'arrow-right' } 
                                 iconColor={ '#ffffff' } />
                         </View>                        

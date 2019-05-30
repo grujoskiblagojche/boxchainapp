@@ -1,16 +1,29 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 // styles
 import ui from '../style/Ui';
 import grid from '../style/Grid';
 import typo from '../style/Typography';
-// images
-import LockIcon from '../assets/lock.png';
+
+import AppIcon from './AppIcon';
 
 const Key = props => (
-    <View style={ [grid.flex_row, grid.flex_row_v_center, ui.appKey] }>
-        <Image style={ ui.appKey_icon } source={ LockIcon } />
-        <Text style={ [typo.key, ui.l_15] }>{ props.secret }</Text>
+    <View style={ [grid.flex_row, grid.spaceBetween, ui.appKey] }>
+        <View style={ [grid.flex_row, grid.flex_row_v_center] }>
+            <AppIcon
+                name = { 'key' }
+                color = { '#f7f7f7' }
+                size = { 18 } />
+            <Text style={ [typo.key, ui.l_15] }>{ props.secret }</Text>
+        </View>
+        <View style={ [grid.flex_row, grid.flex_abs_center, ui.removeKey] }>
+            <TouchableOpacity onPress={ props.onKeyDelete }>
+                <AppIcon
+                    name = { 'times' }
+                    color = { '#c9283e' }
+                    size = { 18 } />
+            </TouchableOpacity>
+        </View>
     </View>
 ) // Key
 

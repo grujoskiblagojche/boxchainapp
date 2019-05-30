@@ -5,8 +5,6 @@ import validate from '../utility/validation';
 import ui from '../style/Ui';
 import grid from '../style/Grid';
 import typo from '../style/Typography';
-// images
-import ArrowIcon from '../assets/arrow.png';
 // components
 import Header from '../components/Header';
 import Input from '../components/Input';
@@ -36,7 +34,7 @@ export default class Register extends React.Component {
                 touched: false
             }
         }
-    }
+    } // state
 
     updateInputState = (key, value) => {
         this.setState(prevState => {

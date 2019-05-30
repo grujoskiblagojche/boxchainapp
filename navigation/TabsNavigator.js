@@ -22,7 +22,7 @@ FindBoxStack.navigationOptions = {
     tabBarLabel: "Find Box",
     tabBarIcon: ({ focused }) => (
         <AppIcon
-            name = "plus-square"
+            name = "search"
             size = { 28 }
             focused = { focused }
         />
@@ -33,7 +33,7 @@ CreateBoxStack.navigationOptions = {
     tabBarLabel: "Create Box",
     tabBarIcon: ({ focused }) => (
         <AppIcon
-            name = "search"
+            name = "plus"
             size = { 28 }
             focused = { focused }
         />
@@ -44,7 +44,7 @@ UserProfileStack.navigationOptions = {
     tabBarLabel: "User Profile",
     tabBarIcon: ({ focused }) => (
         <AppIcon
-            name = "fingerprint"
+            name = "user"
             size = { 28 }
             focused = { focused }
         />

@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 48, height: 48,
+        marginLeft: 15,
         borderRadius: 24,
         backgroundColor: '#333333'
     },
     action: {
-        marginRight: 15,
         backgroundColor: '#02b875'
     },
     arrow_back: {

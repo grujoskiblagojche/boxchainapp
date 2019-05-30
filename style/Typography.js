@@ -22,7 +22,7 @@ const typo = StyleSheet.create({
         fontWeight: '800'
     },
     key: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: '600'
     }
 })

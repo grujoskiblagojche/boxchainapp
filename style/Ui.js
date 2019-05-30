@@ -21,8 +21,12 @@ const ui = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#f7f7f7'
     },
+    removeKey: {
+        width: 48
+    },
     appKey_icon: {
-        width: 20, height: 20
+        // width: 20, height: 20
+        fontSize: 20
     },
     profilePic: {
         width: 100,
