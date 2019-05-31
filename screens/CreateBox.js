@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 // styles
 import ui from '../style/Ui';
 import grid from '../style/Grid';
@@ -10,13 +10,15 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Key from '../components/Key';
 
+import sha256 from '../node_modules/sha256/lib/sha256';
+
 export default class CreateBox extends React.Component {
     static navigationOptions = {
         header: null
     }
 
     state = {
-        key: null,
+        key: '',
         keys: []
     } // state
 
@@ -27,17 +29,21 @@ export default class CreateBox extends React.Component {
     }
 
     createBox = () => {
-
+        let secret = '';
+        this.state.keys.map(key => secret += key);
+        // call API with the #hash
+        this.setState({
+            key: sha256.x2(secret)
+        })
     }
 
     addKey = () => {
-        // if ((this.state.key.trim() === '') || (this.state.keys.length === 6) ) {
-        if (this.state.key.trim() === null) {
+        if (this.state.key.trim() === '') {
             return;
         }
         this.setState(prevState => {
             return {
-                key: null,
+                key: '',
                 keys: prevState.keys.concat(prevState.key)
             }
         })

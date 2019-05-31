@@ -4,8 +4,6 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import ui from '../style/Ui';
 import grid from '../style/Grid';
 import typo from '../style/Typography';
-// images
-import CheckIcon from '../assets/check.png';
 // components
 import Header from '../components/Header';
 

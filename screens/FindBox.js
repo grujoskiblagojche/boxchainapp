@@ -10,13 +10,15 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Key from '../components/Key';
 
+import sha256 from '../node_modules/sha256/lib/sha256';
+
 export default class FindBox extends React.Component {
     static navigationOptions = {
         header: null
     }
 
     state = {
-        key: null,
+        key: '',
         keys: []
     } // state
 
@@ -27,7 +29,12 @@ export default class FindBox extends React.Component {
     }
 
     findBox = () => {
-
+        let secret = '';
+        this.state.keys.map(key => secret += key);
+        // call API with the #hash
+        this.setState({
+            key: sha256.x2(secret)
+        })
     }
 
     addKey = () => {
@@ -36,7 +43,7 @@ export default class FindBox extends React.Component {
         }
         this.setState(prevState => {
             return {
-                key: null,
+                key: '',
                 keys: prevState.keys.concat(prevState.key)
             }
         })
