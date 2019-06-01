@@ -10,6 +10,8 @@ import Header from '../components/Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
+import { http, setAuthorizationToken } from '../axiosConfig';
+
 export default class LogIn extends React.Component {
     static navigationOptions = {
         header: null
@@ -57,8 +59,16 @@ export default class LogIn extends React.Component {
         if (!email.valid || !password.valid) {
             return;
         }
-        // ping api for login user
-        this.goTo('Main');
+
+        http.post("/auth/login", { email: email.value, password: password.value })
+            .then(response => {
+                
+                this.goTo("Main");
+                
+            })
+            .catch(error => {
+                this.setState({ error: "Ne e ubo" })
+            })
     }
 
     goTo = url => {

@@ -38,7 +38,7 @@
 			<key>uniqueIdentifier</key>
 			<string>2753AB20-1F80-4EB4-A2A0-918C398D9B06</string>
 		</dict>
-		<key>8F7569BA-7D46-40B5-95EE-292978A8F0CD</key>
+		<key>D556C5A4-1ABB-4EB0-803F-283DB5DC3ADA</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -47,7 +47,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>8F7569BA-7D46-40B5-95EE-292978A8F0CD.xcactivitylog</string>
+			<string>D556C5A4-1ABB-4EB0-803F-283DB5DC3ADA.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -62,13 +62,13 @@
 			<key>signature</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>580956032.53583002</real>
+			<real>581090115.93812501</real>
 			<key>timeStoppedRecording</key>
-			<real>580956037.28087997</real>
+			<real>581090118.25089002</real>
 			<key>title</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>8F7569BA-7D46-40B5-95EE-292978A8F0CD</string>
+			<string>D556C5A4-1ABB-4EB0-803F-283DB5DC3ADA</string>
 		</dict>
 	</dict>
 </dict>

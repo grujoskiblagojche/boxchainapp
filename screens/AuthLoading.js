@@ -1,21 +1,29 @@
 import React from 'react';
-import { ActivityIndicator, AsyncStorage, View } from 'react-native';
+import { ActivityIndicator, AsyncStorage, View , StatusBar} from 'react-native';
+import { AppContext } from '../Provider';
 
 import Splash from '../screens/Splash';
 
-export default class AuthLoading extends React.Component {
+class AuthLoading extends React.Component {
   constructor(props) {
     super(props);
     this._bootstrapAsync();
   }
 
-  // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
+    this.props.context.getToken()
+      .then((userToken) => {
+          this.props.navigation.navigate(userToken ? 'Main' : 'Auth');
+      })
+      .catch(error => {
+          this.setState({ error });
+      })
+
+    // const userToken = await AsyncStorage.getItem('userToken');
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(false ? 'Main' : 'Auth');
+    // this.props.navigation.navigate(true ? 'Main' : 'Auth');
     // this.props.navigation.navigate(userToken ? 'Main' : 'Auth');
   };
 
@@ -23,12 +31,32 @@ export default class AuthLoading extends React.Component {
   render() {
     return (
       
-      // <ActivityIndicator />
+      // <ActivityIndicator />  
 
       <View>
-        <ActivityIndicator />
-        <Splash />
+        <AppContext.Consumer>
+        {context => ((
+            <View>
+                <ActivityIndicator />
+                <StatusBar barStyle="default" />
+                <Splash/>
+            </View>
+        ))}
+        </AppContext.Consumer>
       </View>
     );
   }
 }
+
+const ForwardRef = React.forwardRef((props, ref) => (
+  <AppContext.Consumer>
+      {context => <AuthLoading context={context} {...props} />}
+  </AppContext.Consumer>
+));
+
+export default ({ navigation }) => (
+  <View>
+      <ForwardRef navigation={navigation} />
+  </View>
+
+)

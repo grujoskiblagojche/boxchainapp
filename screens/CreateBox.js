@@ -10,7 +10,8 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Key from '../components/Key';
 
-import sha256 from '../node_modules/sha256/lib/sha256';
+import sha256 from 'sha256';
+
 
 export default class CreateBox extends React.Component {
     static navigationOptions = {
@@ -41,6 +42,7 @@ export default class CreateBox extends React.Component {
         if (this.state.key.trim() === '') {
             return;
         }
+        
         this.setState(prevState => {
             return {
                 key: '',
@@ -75,7 +77,8 @@ export default class CreateBox extends React.Component {
                         <Input
                             value={ this.state.key }
                             onChangeText={ (value) => this.updateInputState(value) }
-                            placeholder={ 'key' } />
+                            placeholder={ 'key' }
+                            maxLength={12} />
                         <View style={ [grid.flex_row, grid.flex_row_end] }>
                             {
                                 (this.state.keys.length > 2) ?

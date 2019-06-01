@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import validate from '../utility/validation';
 // styles
 import ui from '../style/Ui';
@@ -9,6 +9,7 @@ import typo from '../style/Typography';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import { http } from '../axiosConfig';
 
 export default class Register extends React.Component {
     static navigationOptions = {
@@ -16,6 +17,7 @@ export default class Register extends React.Component {
     }
 
     state = {
+        error: null,
         form: {
             email: {
                 value: '',
@@ -57,8 +59,14 @@ export default class Register extends React.Component {
         if (!email.valid || !password.valid) {
             return;
         }
-        // ping api for registering new user
-        this.goTo('Main');
+        
+        http.post("/auth/verify", { email: email.value, password: password.value })
+            .then(() => {
+                this.goTo("LogIn");
+            })
+            .catch(error => {
+                this.setState({ error: "Ne e ubo" })
+            })
     }
 
     goTo = url => {
@@ -90,7 +98,10 @@ export default class Register extends React.Component {
                                 onPressHandler={ this.register }
                                 iconName={ 'arrow-right' } 
                                 iconColor={ '#ffffff' } />
-                        </View>                        
+                        </View>  
+                        
+                        { this.state.error ? <Text>{this.state.error}</Text> : null }
+
                     </View>
 
                     <View style={ [grid.flex_column, grid.flex_column_h_center, ui.appFooter] }>

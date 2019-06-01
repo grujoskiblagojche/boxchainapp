@@ -75,6 +75,7 @@ export default class FindBox extends React.Component {
                         <Input
                             value={ this.state.key }
                             onChangeText={ (value) => this.updateInputState(value) }
+                            maxLength={ 12 }
                             placeholder={ 'key' } />
                         <View style={ [grid.flex_row, grid.flex_row_end] }>
                             {

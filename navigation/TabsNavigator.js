@@ -6,6 +6,7 @@ import AppIcon from '../components/AppIcon';
 import FindBox from '../screens/FindBox';
 import CreateBox from '../screens/CreateBox';
 import UserProfile from '../screens/UserProfile';
+import Settings from '../screens/Settings';
 
 const FindBoxStack = createStackNavigator({
     FindBox: FindBox
@@ -14,7 +15,8 @@ const CreateBoxStack = createStackNavigator({
     CreateBox: CreateBox
 });
 const UserProfileStack = createStackNavigator({
-    UserProfile: UserProfile
+    UserProfile: UserProfile,
+    Settings: Settings
 });
 
 FindBoxStack.navigationOptions = {

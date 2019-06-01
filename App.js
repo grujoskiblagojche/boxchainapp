@@ -14,15 +14,19 @@ import UserProfile from './screens/UserProfile';
 import ChatBox from './screens/ChatBox';
 
 import grid from './style/Grid';
+//Context Provider
+import Provider from './Provider'
 
 export default class App extends React.Component {
 
   render() {
     return (
-      <View style={ grid.app }>
-        { Platform.OS === 'ios' && <StatusBar barStyle="default" /> }
-        <AppNavigator />
-      </View>
+      <Provider>
+        <View style={ grid.app }>
+          { Platform.OS === 'ios' && <StatusBar barStyle="default" /> }
+          <AppNavigator />
+        </View>
+      </Provider>
 
       // <LogIn />
       // <Register />
