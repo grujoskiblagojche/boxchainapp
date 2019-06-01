@@ -6,6 +6,38 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>2753AB20-1F80-4EB4-A2A0-918C398D9B06</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2753AB20-1F80-4EB4-A2A0-918C398D9B06.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>boxchainapp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>boxchainapp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>581026794.49391496</real>
+			<key>timeStoppedRecording</key>
+			<real>581026802.05345702</real>
+			<key>title</key>
+			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>2753AB20-1F80-4EB4-A2A0-918C398D9B06</string>
+		</dict>
 		<key>8F7569BA-7D46-40B5-95EE-292978A8F0CD</key>
 		<dict>
 			<key>className</key>

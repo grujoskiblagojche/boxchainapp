@@ -81,7 +81,7 @@ export default class CreateBox extends React.Component {
                                 (this.state.keys.length > 2) ?
                                 <Button
                                     onPressHandler={ this.createBox }
-                                    action={ true }
+                                    valid={ true }
                                     iconName={ 'check' } 
                                     iconColor={ '#ffffff' } /> : null }
                             

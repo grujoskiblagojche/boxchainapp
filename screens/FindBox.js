@@ -81,7 +81,7 @@ export default class FindBox extends React.Component {
                                 (this.state.keys.length > 2) ?
                                 <Button
                                     onPressHandler={ this.findBox }
-                                    action={ true }
+                                    valid={ true }
                                     iconName={ 'check' } 
                                     iconColor={ '#ffffff' } /> : null }
                             

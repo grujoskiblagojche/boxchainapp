@@ -33,8 +33,7 @@ const grid = StyleSheet.create({
         flex: 1
     },
     flex_column_v_center: {
-        justifyContent: 'center',
-        // backgroundColor: 'brown'
+        justifyContent: 'center'
     },
     flex_column_h_center: {
         alignItems: 'center'

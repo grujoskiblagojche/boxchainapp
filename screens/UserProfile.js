@@ -56,7 +56,7 @@ export default class UserProfile extends React.Component {
                         <View style={ [grid.flex_row, grid.flex_row_end] }>
                             <Button
                                 onPressHandler={ this.updateUsername }
-                                action={ true }
+                                valid={ true }
                                 iconName={ 'check' } 
                                 iconColor={ '#ffffff' } />
                             <Button

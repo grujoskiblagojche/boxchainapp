@@ -5,7 +5,7 @@ import AppIcon from './AppIcon';
 
 const Button = props => (
     <TouchableOpacity onPress={ () => props.onPressHandler() }>
-        <View style={ [styles.button, (props.action ? styles.action : null), (props.nav ? styles.arrow_back : null), (props.burn ? styles.burn : null)] }>
+        <View style={ [styles.button, (props.action ? styles.action : null), (props.valid ? styles.valid : null)] }>
             <AppIcon
                 name = { props.iconName }
                 color = { props.iconColor }
@@ -24,15 +24,13 @@ const styles = StyleSheet.create({
         borderRadius: 24,
         backgroundColor: '#333333'
     },
-    action: {
+    valid: {
+        marginLeft: 0,
         backgroundColor: '#02b875'
     },
-    arrow_back: {
+    action: {
+        marginLeft: 0,
         backgroundColor: 'transparent'
-    },
-    burn: {
-        marginLeft: 15,
-        backgroundColor: '#eeeeee'
     }
 })
 

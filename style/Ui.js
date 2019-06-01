@@ -36,9 +36,25 @@ const ui = StyleSheet.create({
         marginRight: 20,
         borderRadius: 50
     },
-    chatContainer: {
-        backgroundColor: '#f7f7f7'
+    message: {
+        marginBottom: 15
     },
+    messagePicHolder: {
+        marginLeft: 15,
+        marginRight: 4,
+        borderRadius: 23,
+        shadowColor: '#000000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: .2,
+        shadowRadius: 2
+    },
+    messagePic: {
+        width: 42, height: 42,
+    },
+    // chatContainer: {
+    //     backgroundColor: '#f7f7f7'
+    // },
+
     // helpers
     cockpit: { maxHeight: 150 },
     t_15: { marginTop: 15 },
