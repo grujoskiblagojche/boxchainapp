@@ -62,11 +62,13 @@ export default class Register extends React.Component {
 
     http
       .post("/auth/verify", { email: email.value, password: password.value })
-      .then(() => {
+      .then(response => {
+        //Isprati nekoja notifikacija deka emailot e ispraten
+        //response.message ima poraka "Email Sent"
         this.goTo("LogIn");
       })
       .catch(error => {
-        this.setState({ error: "Ne e ubo" });
+        this.setState({ error: error.errors.message });
       });
   };
 

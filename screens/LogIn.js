@@ -9,13 +9,17 @@ import typo from "../style/Typography";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import Button from "../components/Button";
+//Context Provider
+import { AppContext } from "../Provider";
 
 import { http, setAuthorizationToken } from "../axiosConfig";
 
-export default class LogIn extends React.Component {
+class LogIn extends React.Component {
   static navigationOptions = {
     header: null
   };
+
+  static contextType = AppContext;
 
   state = {
     form: {
@@ -63,10 +67,13 @@ export default class LogIn extends React.Component {
     http
       .post("/auth/login", { email: email.value, password: password.value })
       .then(response => {
+        this.context.saveToken(response.token);
+        this.context.setUserId(response.userId);
         this.goTo("Main");
       })
       .catch(error => {
         //Da se naprajt nekoj prikaz za error
+        //error.errors.message
       });
   };
 
@@ -119,4 +126,6 @@ export default class LogIn extends React.Component {
       </View>
     );
   }
-} // LogIn
+}
+
+export default LogIn;

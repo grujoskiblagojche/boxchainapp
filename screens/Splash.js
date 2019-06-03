@@ -1,11 +1,23 @@
-import React from 'react';
-import { View, Image, Text } from 'react-native';
+import React from "react";
+import { View, Image } from "react-native";
 
+const logo = require("../assets/splash.png");
 
 const Splash = () => (
-    <View>
-        <Text>Splash Screen</Text>
-    </View>
+  <View style={styles.container}>
+    <Image style={styles.logo} source={logo} />
+  </View>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  logo: {
+    width: 300,
+    height: 400
+  }
+});
 
 export default Splash;
