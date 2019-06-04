@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 
 const logo = require("../assets/splash.png");
 

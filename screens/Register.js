@@ -68,7 +68,7 @@ export default class Register extends React.Component {
         this.goTo("LogIn");
       })
       .catch(error => {
-        this.setState({ error: error.errors.message });
+        this.setState({ error: error.message });
       });
   };
 
