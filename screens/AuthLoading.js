@@ -1,6 +1,7 @@
 import React from "react";
-import { ActivityIndicator, AsyncStorage, View, StatusBar } from "react-native";
+import { ActivityIndicator, View, StatusBar } from "react-native";
 import { AppContext } from "../Provider";
+import { setAuthorizationToken } from "../axiosConfig";
 
 import Splash from "../screens/Splash";
 
@@ -14,6 +15,7 @@ class AuthLoading extends React.Component {
     this.props.context
       .getToken()
       .then(userToken => {
+        this.props.context.saveToken(userToken);
         this.props.navigation.navigate(userToken ? "Main" : "Auth");
       })
       .catch(error => {
