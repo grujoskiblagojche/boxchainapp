@@ -7,7 +7,9 @@ export const AppContext = React.createContext();
 export default class Provider extends Component {
   state = {
     token: null,
-    userId: null
+    userId: null,
+    username: "Anonymous",
+    avatar: "https://i0.wp.com/www.calvary.edu/wp-content/uploads/2016/08/person-placeholder.jpg?ssl=1"
   };
 
   saveToken = async token => {
@@ -41,8 +43,11 @@ export default class Provider extends Component {
     }
   };
 
-  setUserId = userId => {
-    this.setState({ userId });
+  setUser = user => {
+    if (user.avatar) this.setState({ avatar: user.avatar })
+    if (user.userId) this.setState({ userId: user.userId })
+    
+    this.setState({ username: user.username });
   };
 
   render() {
@@ -51,10 +56,12 @@ export default class Provider extends Component {
         value={{
           token: this.state.token,
           userId: this.state.userId,
+          username: this.state.username,
+          avatar: this.state.avatar,
           saveToken: this.saveToken,
-          removeItem: this.removeToken,
+          removeToken: this.removeToken,
           getToken: this.getToken,
-          setUserId: this.setUserId
+          setUser: this.setUser
         }}
       >
         {this.props.children}

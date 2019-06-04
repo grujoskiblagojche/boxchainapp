@@ -12,7 +12,7 @@ import Button from "../components/Button";
 //Context Provider
 import { AppContext } from "../Provider";
 
-import { http, setAuthorizationToken } from "../axiosConfig";
+import { http } from "../axiosConfig";
 
 class LogIn extends React.Component {
   static navigationOptions = {
@@ -22,6 +22,7 @@ class LogIn extends React.Component {
   static contextType = AppContext;
 
   state = {
+    error: null,
     form: {
       email: {
         value: "",
@@ -67,13 +68,14 @@ class LogIn extends React.Component {
     http
       .post("/auth/login", { email: email.value, password: password.value })
       .then(response => {
-        this.context.saveToken(response.token);
-        this.context.setUserId(response.userId);
+        this.context.saveToken(response.data.token);
+        this.context.setUser(response.data);
         this.goTo("Main");
       })
       .catch(error => {
         //Da se naprajt nekoj prikaz za error
         //error.errors.message
+        this.setState({ error: error.message});
       });
   };
 
@@ -112,6 +114,9 @@ class LogIn extends React.Component {
                 iconColor={"#ffffff"}
               />
             </View>
+
+            { this.state.error ? <Text>{this.state.error}</Text> : null }
+
           </View>
 
           <View
