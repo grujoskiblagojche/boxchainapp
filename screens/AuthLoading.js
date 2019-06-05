@@ -1,7 +1,11 @@
 import React from "react";
 import { ActivityIndicator, View, StatusBar } from "react-native";
 import { AppContext } from "../Provider";
-import { setAuthorizationToken } from "../axiosConfig";
+import {
+  http,
+  setAuthorizationToken,
+  removeAuthorizationToken
+} from "../axiosConfig";
 
 import Splash from "../screens/Splash";
 
@@ -12,15 +16,27 @@ class AuthLoading extends React.Component {
   }
 
   _bootstrapAsync = async () => {
-    this.props.context
-      .getToken()
-      .then(userToken => {
-        this.props.context.saveToken(userToken);
-        this.props.navigation.navigate(userToken ? "Main" : "Auth");
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
+    try {
+      const token = await this.props.context.getToken();
+      if (!token) return;
+
+      setAuthorizationToken(token);
+      const user = http.post("/auth/checktoken");
+
+      this.props.setUser(user);
+      await this.props.context.saveToken(userToken);
+
+      this.props.navigation.navigate(user ? "Main" : "Auth");
+    } catch (error) {
+      removeAuthorizationToken();
+      //da se naprajt nekoj nacin za fakjanje errori
+    }
+
+    this.props.context.getToken().then(userToken => {
+      http.post("/auth/checktoken");
+      this.props.context.saveToken(userToken);
+      this.props.navigation.navigate(userToken ? "Main" : "Auth");
+    });
   };
 
   // Render any loading content that you like here
