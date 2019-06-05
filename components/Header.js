@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 // styles
 import ui from "../style/Ui";
 import grid from "../style/Grid";
+import colors from "../style/Color";
 import typo from "../style/Typography";
 // images
-// import boxChain from '../assets/icon.png';
+import boxChain from '../assets/icon.png';
 // components
 import Button from "./Button";
 
@@ -32,20 +33,21 @@ const BurnBox = props => (
 );
 
 const Header = props => (
-  <View
-    style={[
-      grid.flex_row,
-      grid.flex_row_v_center,
-      ui.appHeader,
-      props.chatbox ? grid.spaceBetween : ""
-    ]}
-  >
-    {props.chatbox ? goBack : null}
-    <View style={[grid.flex_row, grid.flex_row_v_center]}>
-      {/* <Image style={ ui.appHeader_logo } source={ boxChain } /> */}
-      <Text style={typo.title}>{props.title}</Text>
+  <View style={[
+    grid.flex_row,
+    grid.flex_row_v_center,
+    ui.appHeader,
+    props.chatbox ? grid.spaceBetween : "" ]}>
+    
+    { props.chatbox ? goBack : null }
+
+    <View style={[ grid.flex_row, grid.flex_row_v_center ]}>
+      <Image style={ ui.appHeader_logo } source={ boxChain } />
+      <Text style={[ typo.title, colors.c_white ]}>{ props.title }</Text>
     </View>
-    {props.chatbox ? <BurnBox clickHandler={props.burnBox} /> : null}
+
+    { props.chatbox ? <BurnBox clickHandler={ props.burnBox } /> : null }
+
   </View>
 ); // Header
 

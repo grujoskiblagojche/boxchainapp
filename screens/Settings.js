@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { AppContext } from "../Provider";
 // styles
 import ui from "../style/Ui";
 import grid from "../style/Grid";
+import colors from "../style/Color";
 import typo from "../style/Typography";
 // components
 import Header from "../components/Header";
-
-import { AppContext } from "../Provider";
 
 export default class Settings extends React.Component {
   static navigationOptions = {
@@ -29,15 +29,15 @@ export default class Settings extends React.Component {
 
   render() {
     return (
-      <View style={grid.appWrapper}>
+      <View style={[ grid.appWrapper, colors.bg_darkest ]}>
         <View style={grid.container}>
-          <Header title={"Settings"} />
+          <Header title={"Settings 1"} goBack={true} />
 
           <View style={[grid.flex_column, ui.t_60, ui.cockpit]} />
 
           <View style={[grid.flex_row, grid.flex_abs_center, ui.appFooter]}>
             <TouchableOpacity onPress={this._signOutAsync}>
-              <Text style={[typo.action]}>Log Out</Text>
+              <Text style={[typo.action, colors.c_white]}>Log Out</Text>
             </TouchableOpacity>
           </View>
         </View>

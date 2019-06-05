@@ -18,25 +18,21 @@ class AuthLoading extends React.Component {
   _bootstrapAsync = async () => {
     try {
       const token = await this.props.context.getToken();
-      if (!token) return;
+      if (!token) return this.props.navigation.navigate("Auth");
 
       setAuthorizationToken(token);
-      const user = http.post("/auth/checktoken");
+      const response = await http.post("/auth/checktoken");
+      // if (!response.data) return this.props.navigation.navigate("Auth");
+      
+      this.props.context.setUser(response.data);
+      this.props.context.saveToken(token);
 
-      this.props.setUser(user);
-      await this.props.context.saveToken(userToken);
-
-      this.props.navigation.navigate(user ? "Main" : "Auth");
+      this.props.navigation.navigate("Main");
     } catch (error) {
       removeAuthorizationToken();
+      this.props.navigation.navigate("Auth");
       //da se naprajt nekoj nacin za fakjanje errori
     }
-
-    this.props.context.getToken().then(userToken => {
-      http.post("/auth/checktoken");
-      this.props.context.saveToken(userToken);
-      this.props.navigation.navigate(userToken ? "Main" : "Auth");
-    });
   };
 
   // Render any loading content that you like here

@@ -1,17 +1,17 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { http } from "../axiosConfig";
+import sha256 from "sha256";
 // styles
 import ui from "../style/Ui";
 import grid from "../style/Grid";
+import colors from "../style/Color";
 import typo from "../style/Typography";
 // components
 import Header from "../components/Header";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Key from "../components/Key";
-
-import sha256 from "sha256";
-import { http } from "../axiosConfig";
 
 export default class FindBox extends React.Component {
   static navigationOptions = {
@@ -42,6 +42,7 @@ export default class FindBox extends React.Component {
         });
       })
       .catch(error => {
+        this.props.navigation.navigate('BoxNotFound');
         // this.setState({ key: error.message });
       });
   };
@@ -74,14 +75,12 @@ export default class FindBox extends React.Component {
     ));
 
     return (
-      <View style={grid.appWrapper}>
+      <View style={[ grid.appWrapper, colors.bg_darkest ]}>
         <View style={grid.container}>
           <Header title={"Find Box"} />
 
           <View style={[grid.flex_column, ui.t_60, ui.cockpit]}>
-            <Text style={[typo.info, ui.b_15]}>
-              Make sure you use correct keys
-            </Text>
+            <Text style={[typo.info, ui.b_15, colors.c_medium]}>Make sure to use correct keys.</Text>
             <Input
               value={this.state.key}
               onChangeText={value => this.updateInputState(value)}
@@ -94,17 +93,15 @@ export default class FindBox extends React.Component {
                   onPressHandler={this.findBox}
                   valid={true}
                   iconName={"check"}
-                  iconColor={"#ffffff"}
-                />
+                  iconColor={"#ffffff"} />
               ) : null}
 
-              {this.state.keys.length < 6 ? (
+              { this.state.keys.length < 6 ? (
                 <Button
                   onPressHandler={this.addKey}
                   iconName={"arrow-right"}
-                  iconColor={"#ffffff"}
-                />
-              ) : null}
+                  iconColor={"#ffffff"} />
+              ) : null }
             </View>
           </View>
 

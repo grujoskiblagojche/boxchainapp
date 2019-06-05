@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Platform } from "react-native";
 
-const apiURL = "http://192.168.1.122:4000/api";
+// const apiURL = "http://192.168.1.122:4000/api";
+const apiURL = "http://localhost:4000/api";
+
 // "http://" + Platform.OS == "ios"
 //   ? "localhost"
 //   : "192.168.1.122" + ":4000/api";

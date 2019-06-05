@@ -1,18 +1,17 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { AppContext } from "../Provider";
+import { http } from "../axiosConfig";
 import validate from "../utility/validation";
 // styles
 import ui from "../style/Ui";
 import grid from "../style/Grid";
+import colors from "../style/Color";
 import typo from "../style/Typography";
 // components
 import Header from "../components/Header";
 import Input from "../components/Input";
 import Button from "../components/Button";
-//Context Provider
-import { AppContext } from "../Provider";
-
-import { http } from "../axiosConfig";
 
 class LogIn extends React.Component {
   static navigationOptions = {
@@ -70,7 +69,7 @@ class LogIn extends React.Component {
       .then(response => {
         this.context.saveToken(response.data.token);
         this.context.setUser(response.data);
-        this.goTo("Main");
+        this.props.navigation.navigate("Main");
       })
       .catch(error => {
         //Da se naprajt nekoj prikaz za error
@@ -79,13 +78,9 @@ class LogIn extends React.Component {
       });
   };
 
-  goTo = url => {
-    this.props.navigation.navigate(url);
-  };
-
   render() {
     return (
-      <View style={grid.appWrapper}>
+      <View style={[ grid.appWrapper, colors.bg_darkest ]}>
         <View style={grid.container}>
           <Header title={"Authenticate"} />
 
@@ -95,18 +90,16 @@ class LogIn extends React.Component {
               onChangeText={value => this.updateInputState("email", value)}
               placeholder={"email"}
               valid={this.state.form.email.valid}
-              touched={this.state.form.email.touched}
-            />
+              touched={this.state.form.email.touched} />
             <Input
               value={this.state.form.password.value}
               onChangeText={value => this.updateInputState("password", value)}
               placeholder={"password"}
               valid={this.state.form.password.valid}
-              touched={this.state.form.password.touched}
-            />
+              touched={this.state.form.password.touched} />
             <View style={[grid.flex_row, grid.spaceBetween]}>
-              <TouchableOpacity onPress={() => this.goTo("ResetPassword")}>
-                <Text style={[typo.info, ui.l_15]}>Forgot your password?</Text>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("ResetPassword")}>
+                <Text style={[typo.info, ui.l_15, colors.c_light]}>Forgot your password?</Text>
               </TouchableOpacity>
               <Button
                 onPressHandler={this.login}
@@ -119,18 +112,16 @@ class LogIn extends React.Component {
 
           </View>
 
-          <View
-            style={[grid.flex_column, grid.flex_column_h_center, ui.appFooter]}
-          >
-            <Text style={[typo.info, ui.b_15]}>Don't have an account ?</Text>
-            <TouchableOpacity onPress={() => this.goTo("Register")}>
-              <Text style={[typo.action]}>Create Now</Text>
+          <View style={[grid.flex_column, grid.flex_column_h_center, ui.appFooter]}>
+            <Text style={[typo.desc, ui.b_15, colors.c_medium]}>Don't have an account ?</Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Register")}>
+              <Text style={[typo.action, colors.c_white]}>Create Now</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     );
   }
-}
+} // LogIn
 
 export default LogIn;

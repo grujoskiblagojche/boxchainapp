@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const ui = StyleSheet.create({    
+    app: {
+        backgroundColor: '#0c0c0c'
+    },
     appHeader: {
         maxHeight: 50,
         marginTop: 40
@@ -19,7 +22,7 @@ const ui = StyleSheet.create({
     appKey: {
         height: 42,
         borderBottomWidth: 1,
-        borderBottomColor: '#f7f7f7'
+        borderBottomColor: '#0c0c0e'
     },
     removeKey: {
         width: 48

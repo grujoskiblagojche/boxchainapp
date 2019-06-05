@@ -4,6 +4,7 @@ import validate from '../utility/validation';
 // styles
 import ui from '../style/Ui';
 import grid from '../style/Grid';
+import colors from "../style/Color";
 import typo from '../style/Typography';
 // components
 import Header from '../components/Header';
@@ -59,14 +60,13 @@ export default class ResetPassword extends React.Component {
 
     render() {
         return (
-            <View style={ grid.appWrapper }>
+            <View style={[ grid.appWrapper, colors.bg_darkest ]}>
                 <View style={ grid.container }>
-
                     <Header title={ 'Reset Password' } />
 
                     <View style={ [grid.flex_column, grid.flex_column_v_center] }>
                         <TouchableOpacity>
-                            <Text style={ [typo.info, ui.l_15, ui.b_15] }>Forgot your password?</Text>
+                            <Text style={ [typo.info, ui.l_15, ui.b_15, colors.c_medium] }>Please check your email after submitting.</Text>
                         </TouchableOpacity>
                         <Input
                             value={ this.state.form.email.value }
@@ -83,9 +83,9 @@ export default class ResetPassword extends React.Component {
                     </View>
 
                     <View style={ [grid.flex_column, grid.flex_column_h_center, ui.appFooter] }>
-                        <Text style={ [typo.info, ui.b_15] }>Remember your password ?</Text>
+                        <Text style={ [typo.desc, ui.b_15, colors.c_medium] }>Remember your password ?</Text>
                         <TouchableOpacity onPress={() => this.goTo('LogIn') }>
-                            <Text style={ [typo.action] }>Authenticate</Text>
+                            <Text style={ [typo.action, colors.c_white] }>Authenticate</Text>
                         </TouchableOpacity>
                     </View>
 

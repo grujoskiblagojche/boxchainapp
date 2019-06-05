@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 // styles
 import ui from "../style/Ui";
 import grid from "../style/Grid";
+import colors from "../style/Color";
 import typo from "../style/Typography";
 // components
 import Header from "../components/Header";
@@ -77,14 +78,12 @@ export default class CreateBox extends React.Component {
     ));
 
     return (
-      <View style={grid.appWrapper}>
+      <View style={[ grid.appWrapper, colors.bg_darkest ]}>
         <View style={grid.container}>
           <Header title={"Create Box"} />
 
           <View style={[grid.flex_column, ui.t_60, ui.cockpit]}>
-            <Text style={[typo.info, ui.b_15]}>
-              Make sure you use correct keys
-            </Text>
+            <Text style={[typo.info, ui.b_15, colors.c_medium]}>Your secret keys are guarantee for your privacy.</Text>
             <Input
               value={this.state.key}
               onChangeText={value => this.updateInputState(value)}

@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>1851B125-A7FD-4D32-A96C-EB9DBCFA9FE6</key>
+		<key>6E7D977C-856D-4D21-9B2A-1E0FCDF13447</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>1851B125-A7FD-4D32-A96C-EB9DBCFA9FE6.xcactivitylog</string>
+			<string>6E7D977C-856D-4D21-9B2A-1E0FCDF13447.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,45 +30,13 @@
 			<key>signature</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>581342608.95257401</real>
+			<real>581445770.69017899</real>
 			<key>timeStoppedRecording</key>
-			<real>581342611.010077</real>
+			<real>581445773.43813801</real>
 			<key>title</key>
 			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>1851B125-A7FD-4D32-A96C-EB9DBCFA9FE6</string>
-		</dict>
-		<key>79BEBFF2-6C24-4AB4-B991-36747BD63BDD</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>79BEBFF2-6C24-4AB4-B991-36747BD63BDD.xcactivitylog</string>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>boxchainapp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>boxchainapp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>581343183.26349497</real>
-			<key>timeStoppedRecording</key>
-			<real>581343188.41168594</real>
-			<key>title</key>
-			<string>Building project boxchainapp with scheme boxchainapp and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>79BEBFF2-6C24-4AB4-B991-36747BD63BDD</string>
+			<string>6E7D977C-856D-4D21-9B2A-1E0FCDF13447</string>
 		</dict>
 	</dict>
 </dict>

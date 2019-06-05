@@ -7,23 +7,17 @@ import {
 import AppIcon from "../components/AppIcon";
 
 import FindBox from "../screens/FindBox";
-import ChatBox from "../screens/ChatBox";
-import BoxNotFound from "../screens/BoxNotFound";
 import CreateBox from "../screens/CreateBox";
 import UserProfile from "../screens/UserProfile";
-import Settings from "../screens/Settings";
 
 const FindBoxStack = createStackNavigator({
-  FindBox: FindBox,
-  ChatBox: ChatBox,
-  BoxNotFound: BoxNotFound
+  FindBox: FindBox
 });
 const CreateBoxStack = createStackNavigator({
   CreateBox: CreateBox
 });
 const UserProfileStack = createStackNavigator({
-  UserProfile: UserProfile,
-  Settings: Settings
+  UserProfile: UserProfile
 });
 
 FindBoxStack.navigationOptions = {
